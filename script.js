@@ -1,14 +1,24 @@
-var x = parseFloat(prompt("Число А", ""));
-var y = parseFloat(prompt("Число В", ""));
-var op = prompt("Виберіть дію", "");
+const x = parseFloat(prompt("Число А"));
+const y = parseFloat(prompt("Число В"));
+const op = prompt("Виберіть оператор [ div add sub mul ] :");
+var operators = ["add", "sub", "div", "mul"];
 
-if (op == "add") {
-  z = Number(x) + Number(y);
-} else if (op == "div") {
-  z = Number(x) / Number(y);
-} else if (op == "mul") {
-  z = Number(x) * Number(y);
-} else if (op == "sub") {
-  z = Number(x) - Number(y);
+function Calculator(x, y, op) {
+  switch (op) {
+    case "add":
+      return x + y;
+      break;
+    case "sub":
+      return x - y;
+      break;
+    case "mul":
+      return x * y;
+      break;
+    case "div":
+      return x / y;
+      break;
+  }
 }
-alert(z);
+
+if (operators.indexOf(op) !== -1) alert("Результат: " + Calculator(x, y, op));
+else alert("Невідповідний оператор");
